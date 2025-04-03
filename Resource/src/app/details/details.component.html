@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Detailed View</title>
+    <link rel="stylesheet" href="details.component.css">
+</head>
+<body>
+    <div class="resource-detail-container">
+        <h1 class="resource-title">{{ resource.title }}</h1>
+        
+        <div class="resource-meta">
+            <div class="category">Category: <span>{{ resource.category }}</span></div>
+            <div class="author">Author: <span>{{ resource.author }}</span></div>
+            <div class="publication-date">Published on: <span>{{ resource.publicationDate }}</span></div>
+        </div>
+
+        <div class="resource-description">
+            <h2>Description</h2>
+            <p>{{ resource.description }}</p>
+        </div>
+
+        <div class="resource-link">
+            <a [href]="resource.link" target="_blank">Read Full Resource</a>
+        </div>
+
+        <div class="back-to-list">
+            <button (click)="goBack()" [disabled]="isLoading">Back to List</button>
+        </div>
+    </div>
+</body>
+</html>
