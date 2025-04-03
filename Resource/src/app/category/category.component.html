@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Resource List</title>
+    <link rel="stylesheet" href="category.component.css">
+</head>
+<body>
+
+    <header>
+        <h1>Resource Library</h1>
+        <p>Browse resources by category</p>
+    </header>
+
+    <div class="categories">
+        <section class="category" id="web-development">
+            <h2>{{ webDevCategory.title }}</h2>
+            <p>{{ webDevCategory.description }}</p>
+            <ul class="resource-list">
+                <li *ngFor="let resource of webDevCategory.resources">
+                    <a [href]="resource.url" target="_blank">{{ resource.name }}</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="category" id="data-science">
+            <h2>{{ dataScienceCategory.title }}</h2>
+            <p>{{ dataScienceCategory.description }}</p>
+            <ul class="resource-list">
+                <li *ngFor="let resource of dataScienceCategory.resources">
+                    <a [href]="resource.url" target="_blank">{{ resource.name }}</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="category" id="design">
+            <h2>{{ designCategory.title }}</h2>
+            <p>{{ designCategory.description }}</p>
+            <ul class="resource-list">
+                <li *ngFor="let resource of designCategory.resources">
+                    <a [href]="resource.url" target="_blank">{{ resource.name }}</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Example of a button with disabled property and event binding -->
+    <button [disabled]="isButtonDisabled" (click)="onButtonClick()">Click Me</button>
+
+    <!-- Example of an image with dynamic src binding -->
+    <img [src]="imageUrl" alt="Dynamic Image">
+
+</body>
+</html>

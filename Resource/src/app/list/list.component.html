@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Cards</title>
+    <link rel="stylesheet" href="list.component.css">
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" data-title="Learning TypeScript" data-description="A comprehensive guide to understanding and mastering TypeScript." data-category="Programming" data-image="typescript-image.jpg">
+            <div class="card-title">{{ cardTitle }}</div>
+            <div class="card-description">{{ cardDescription }}</div>
+            <div class="category-tag">{{ cardCategory }}</div>
+            <button class="view-details-button" onclick="viewDetails('Learning TypeScript')">View Details</button>
+        </div>
+        
+        <div class="card" data-title="Web Design Basics" data-description="A beginner-friendly resource for learning web design principles." data-category="Designing" data-image="web-design-image.jpg">
+            <div class="card-title">{{ cardTitle }}</div>
+            <div class="card-description">{{ cardDescription }}</div>
+            <div class="category-tag">{{ cardCategory }}</div>
+            <button class="view-details-button" onclick="viewDetails('Web Design Basics')">View Details</button>
+        </div>
+
+        <div class="card" data-title="React for Beginners" data-description="Start building dynamic web apps with React." data-category="Development" data-image="react-image.jpg">
+            <div class="card-title">{{ cardTitle }}</div>
+            <div class="card-description">{{ cardDescription }}</div>
+            <div class="category-tag">{{ cardCategory }}</div>
+            <button class="view-details-button" onclick="viewDetails('React for Beginners')">View Details</button>
+        </div>
+
+        <div class="card" data-title="Introduction to CSS Grid" data-description="Learn how to create complex layouts with CSS Grid." data-category="Web Design" data-image="css-grid-image.jpg">
+            <div class="card-title">{{ cardTitle }}</div>
+            <div class="card-description">{{ cardDescription }}</div>
+            <div class="category-tag">{{ cardCategory }}</div>
+            <button class="view-details-button" onclick="viewDetails('Introduction to CSS Grid')">View Details</button>
+        </div>
+    </div>
+
+    <script>
+        // Example of data binding using JavaScript
+        document.querySelectorAll('.card').forEach(card => {
+            const title = card.getAttribute('data-title');
+            const description = card.getAttribute('data-description');
+            const category = card.getAttribute('data-category');
+            const imageUrl = card.getAttribute('data-image');
+
+            // Text Interpolation
+            card.querySelector('.card-title').innerHTML = title;
+            card.querySelector('.card-description').innerHTML = description;
+            card.querySelector('.category-tag').innerHTML = category;
+
+            // Property Binding
+            card.querySelector('.view-details-button').disabled = false; // Set disabled if necessary
+            card.querySelector('.card').style.backgroundImage = `url(${imageUrl})`; // Example of dynamic image binding
+        });
+
+        // Event Binding for button click
+        function viewDetails(resource) {
+            alert('You clicked on ' + resource);
+        }
+    </script>
+</body>
+</html>
