@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'
 })
-export class NavigationComponent {
+export class NavigationMenuComponent {
 
 }
