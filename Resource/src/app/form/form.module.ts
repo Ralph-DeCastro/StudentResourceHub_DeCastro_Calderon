@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';  // ✅ Import FormsModule
 import { FormComponent } from './form.component';
 
 @NgModule({
-  declarations: [FormComponent],
+  declarations: [FormComponent, FormsModule],
   imports: [
     CommonModule,
     FormsModule  // ✅ Make sure FormsModule is here

@@ -1,25 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
-  imports: [],
   templateUrl: './details.component.html',
-  styleUrl: './details.component.css'
+  styleUrls: ['./details.component.css']
 })
-export class DetailsComponent {
-  resource = {
-    title: 'Learning TypeScript',
-    category: 'Programming',
-    author: 'John Doe',
-    publicationDate: 'January 15, 2023',
-    description: 'This comprehensive guide to TypeScript...',
-    link: 'https://example.com'
-  };
+export class DetailsComponent implements OnInit {
+  resource: any;
 
-  isLoading = false;
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    // Fetch resource details based on id
+    this.resource = {
+      title: 'Resources of Students ' + id,
+      fullDescription: 'Studying at University of Baguio ' + id,
+      category: 'Information Technology',
+      url: 'http://example.com',
+      author: 'DeCastro-Calderon',
+      publicationDate: '2025-04-03'
+    };
+  }
 
   goBack() {
-    window.history.back();
+    this.router.navigate(['/resources']);
   }
 }
-

@@ -1,29 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';  // ✅ Import FormsModule
-
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { AppComponent } from './app.component';
-import { FormComponent } from './form/form.component'; // ✅ Import FormComponent
-import { CategoryComponent } from './category/category.component';
-import { DetailsComponent } from './details/details.component';
-import { ListComponent } from './list/list.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
+import { FormComponent } from './form/form.component'; // Adjust the path as necessary
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    CategoryComponent,
-    DetailsComponent,
-    ListComponent
+    FormsModule// Declare your FormComponent here
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
-    CommonModule  // ✅ Make sure FormsModule is here
+    FormComponent // Add FormsModule to imports
   ],
   providers: [],
   bootstrap: [AppComponent]
