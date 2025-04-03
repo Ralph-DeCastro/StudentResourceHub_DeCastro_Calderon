@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list',
+  imports: [CommonModule],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  cardTitle: string = 'Default Title';
-  cardDescription: string = 'Default Description';
-  cardCategory: string = 'Default Category';
+  resources = [
+    { title: 'Student 1: Ralph', description: 'Studying at University of Baguio', category: 'Information Technology', id: 1 },
+    { title: 'Student 2: Jay Mark', description: 'Studying at University of Baguio', category: 'Computer Science', id: 2 },
+    // Add more resources as needed
+  ];
 
-  // Example method to update card details dynamically
-  updateCard(title: string, description: string, category: string) {
-    this.cardTitle = title;
-    this.cardDescription = description;
-    this.cardCategory = category;
+  constructor(private router: Router) {}
+
+  viewDetails(resource: any) {
+    this.router.navigate(['/resource', resource.id]);
   }
 }
